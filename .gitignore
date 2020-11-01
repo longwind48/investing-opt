@@ -1,0 +1,7 @@
+__pycache__/
+secrets.yml
+.ipynb_checkpoints
+.idea/
+.vscode/
+__pycache__
+.DS_Store
