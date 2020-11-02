@@ -1,1 +1,0 @@
-{'TSLA_adj_close': 0.26507, 'GOOG_adj_close': 0.0, 'AAPL_adj_close': 0.73493}
