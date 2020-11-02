@@ -1,13 +1,13 @@
 Portfolio Optimization for Retail Investors
 ==============================
 
-While ETFs do provide low-cost access to a variety of asset classes, industry sectors, and international markets, they do carry some unique risks.  For e.g. trading fees and lack of liquidity. We shall explore  research-backed techniques of portfolio diversification as an possible  alternative to ETF-investing.
+While ETFs do provide low-cost access to a variety of asset classes, industry sectors, and international markets, they do carry some unique risks.  For e.g. trading fees and lack of liquidity. We shall explore  research-backed techniques of portfolio diversification as possible alternatives to ETF-investing.
 
 In this notebook, several portfolio optimization techniques are used  to find the best portfolio-allocation strategy. The objective is to **employ well-documented portfolio-optimization methods as a retail investor.**
 
 ---
 
-As a retail investor myself, I truly believe in high-growth and innovative companies. This is a pet project aimed for my own interests in investing. My content focus on the following:
+As a long-term retail investor myself, I truly believe in high-growth and innovative companies. This is a pet project aimed for my own interests in investing. My content is focused on the following:
 
 - Apply a variety of portfolio-optimization techniques
 - Back-test optimized portfolio-allocation weights on out-of-sample data.
@@ -18,7 +18,13 @@ As a retail investor myself, I truly believe in high-growth and innovative compa
 
 ## Set up
 
-Development environment and dependencies are maintained using docker.  
+Requirements:
+
+- Git
+- Docker
+- Python3
+
+Development environment and dependencies are maintained using docker.  Use the following code to start a docker container required for development.
 
 ```shell
 $ git clone https://github.com/longwind48/investing-opt.git
@@ -54,10 +60,10 @@ $ docker logs investing_opt_dev
 
 - In notebook `investing_opt/notebooks/pyportfolioopt_011120.ipynb`, the subject assets are **TSLA**, **ARKK** and **AAPL**.  
 
-- Back-testing setup:
+- Back-testing was done on out-of-sample data, and commission fees (@0.08% according to Saxo Broker) was also accounted for.
   - 2015-01-01 to 2019-12-31 for *optimization*
   - 2020-01-01 to 2020-11-01 (YTD) for *backtesting*
-- `get_stock_data()` function retrieves the daily closing prices from yahoo finance. Adjusted closing prices are more appropriate because they account for cash and stock dividends.
+- `get_stock_data()` function retrieves the daily closing prices from yahoo finance. It would be more sensible to use adjusted closing prices as they account for cash and stock dividends.
 
 ---
 
@@ -76,7 +82,7 @@ There are 3 configurations of portfolio weights:
 - `'100% TSLA'` attained a jaw-dropping PNL @ 347.09%
 - Markowitz’s method of optimization `'EFO w/ Max Sharpe'` assigned a weight of zero to TSLA. This is expected because this method is known to set many of the asset weights to be zero. A workaround is to introduce L2 regularization to the objective function, which is what we did to `'EFO w/ Min Volatility w/ L2'`.
 - We can speculate that TSLA's zero allocation is due of its high correlation with ARKK. (Afterall, ARKK has TSLA as the top holding, as of 01 Nov 2020)
-- `'100% TSLA' strategy'` yielded a max drawdown of 60.6% YTD and a max drawdown period of 75 days. Some might violently disagree with this strategy as it defies all logic that points to diversification. To my defence, this is still a strategy worth evaluating.
+- `'100% TSLA' strategy'` yielded a max drawdown of 60.6% YTD and a max drawdown period of 75 days. Some might vehemently disagree with this strategy as it defies all logic that points to diversification. As a firm believer of Tesla, this is still a strategy worth evaluating.
 
  
 
@@ -105,10 +111,17 @@ Profit and Loss (percent): 151.91%
 
 
 
+Assuming one start with an initial portfolio value of $100,000, he/she would have yielded 151.91% in capital gains over a span of 305 days. If we compare to the market, the S&P500 would have yielded 1.21% YTD. 
+
+**This result further re-affirmed my long position in innovative companies like Tesla. Innovative and disruptive companies do outperform in the midst of a crisis.** 
+
 ## Further Work
+
+Stay tuned for more:
 
 - [ ] Evaluate different different configs for portfolio weights on periodic investments
 - [ ] Use Adjusted Closing prices
+- [ ] Project annual returns using machine learning
 - [ ] Deploy 'Portfolio-Optimization + Backtesting' as a service using the following setup:
   - FastAPI as web framework
   - Gunicorn as WSGI application server
