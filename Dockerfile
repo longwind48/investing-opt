@@ -1,7 +1,13 @@
 FROM jupyter/scipy-notebook:latest
 
-COPY ./investing_opt_repo/requirements.txt  /jovyan/work/
+# initialize conda environment
+COPY environment.yml /jovyan/work/
+RUN conda env create -f /jovyan/work/environment.yml
+ENV PATH /opt/conda/envs/myenv/bin:$PATH
+RUN /bin/bash -c "source activate myenv"
 
+# install dependencies
+COPY ./investing_opt_repo/requirements.txt  /jovyan/work/
 RUN pip install -r /jovyan/work/requirements.txt
 
 RUN python -m pip install jupyterthemes
