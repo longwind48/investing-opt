@@ -123,7 +123,15 @@ Profit and Loss (percent): 151.91%
 
 Assuming one start with an initial portfolio value of $100,000, he/she would have yielded 151.91% in capital gains over a span of 305 days. If we compare to the market, the S&P500 would have yielded 1.21% YTD. 
 
-**These observations further re-affirmed my long position in innovative companies like Tesla. Innovative and disruptive companies do outperform in the midst of a crisis.** 
+#### Final Thoughts
+
+There is no sound way to evaluate the value of a EFO-optimized portfolio. This is because, in the real world, there are many factors that affect allocation weights. For example, the investor could be fired up after reading up on company X's news, and decided to increase his/her position size for that stock. Or perhaps he/she has extra cashflow for the month, and felt like investing more. Position sizes could also be increased for some company if it is due for a big event, or if it is oversold. 
+
+I could set on some baseline measure for comparison, for example, equal weights for all assets in portfolio. However, I decided against it because this is an uncommon sight in real-world investing. 
+
+Afterall, this is a project designed to benefit any retail investor. I think that comparing the portfolio with the market index is the most appropriate measure. 
+
+**Personally, these observations further re-affirmed my long position in innovative companies like Tesla. Innovative and disruptive companies do outperform in the midst of a crisis.** 
 
 ## Further Work
 
