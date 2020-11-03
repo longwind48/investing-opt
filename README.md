@@ -59,11 +59,17 @@ $ docker logs investing_opt_dev
 ## Analysis
 
 - In notebook `investing_opt/notebooks/pyportfolioopt_011120.ipynb`, the subject assets are **TSLA**, **ARKK** and **AAPL**.  
-
 - Back-testing was done on out-of-sample data, and commission fees (@0.08% according to Saxo Broker) was also accounted for.
   - 2015-01-01 to 2019-12-31 for *optimization*
   - 2020-01-01 to 2020-11-01 (YTD) for *backtesting*
-- `get_stock_data()` function retrieves the daily closing prices from yahoo finance. It would be more sensible to use adjusted closing prices as they account for cash and stock dividends.
+
+![absolute returns chart](https://github.com/longwind48/investing-opt/blob/main/investing_opt/reports/figures/ytd_portfolio_perf_efo_min_vol_l2_011120.png)
+
+**Observations** (backtested on *adjusted* closing prices):
+
+- With an initial investment sum of $100,000, EFO-optimized portfolio will yield 154.33% returns YTD.
+- Whereas the market, SPY, will only yield 1.96% in returns YTD.
+- Absolute returns have already accounted for 0.08% commission fees, and are based off adjusted closing prices. 
 
 ---
 
@@ -75,7 +81,7 @@ There are 3 configurations of portfolio weights:
 
 
 
-**Observations:**
+**Observations** (backtested on non-adjusted closing prices):
 
 - `'EFO w/ Max Sharpe'` attained the lowest PNL @ 59.18%
 - `'EFO w/ Min Volatility w/ L2'` attained a significantly improved PNL @ 151.91%
