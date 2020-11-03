@@ -58,10 +58,22 @@ $ docker logs investing_opt_dev
 
 ## Analysis
 
+Using the above Portfolio Optimization Techniques, 3 configurations of portfolio weights are hand-picked:
+
+1. `EFO w/ 'Max Sharpe'`
+2. `EFO w/ 'Min Volatility w/ L2'`
+3. `'100% TSLA'`
+
+
+
+#### Background
+
 - In notebook `investing_opt/notebooks/pyportfolioopt_011120.ipynb`, the subject assets are **TSLA**, **ARKK** and **AAPL**.  
 - Back-testing was done on out-of-sample data, and commission fees (@0.08% according to Saxo Broker) was also accounted for.
   - 2015-01-01 to 2019-12-31 for *optimization*
   - 2020-01-01 to 2020-11-01 (YTD) for *backtesting*
+
+---
 
 ![absolute returns chart](https://github.com/longwind48/investing-opt/blob/main/investing_opt/reports/figures/ytd_portfolio_perf_efo_min_vol_l2_011120.png)
 
@@ -72,14 +84,6 @@ $ docker logs investing_opt_dev
 - Absolute returns have already accounted for 0.08% commission fees, and are based off adjusted closing prices. 
 
 ---
-
-There are 3 configurations of portfolio weights:
-
-1. `EFO w/ 'Max Sharpe'`
-2. `EFO w/ 'Min Volatility w/ L2'`
-3. `'100% TSLA'`
-
-
 
 **Observations** (backtested on non-adjusted closing prices):
 
@@ -119,14 +123,14 @@ Profit and Loss (percent): 151.91%
 
 Assuming one start with an initial portfolio value of $100,000, he/she would have yielded 151.91% in capital gains over a span of 305 days. If we compare to the market, the S&P500 would have yielded 1.21% YTD. 
 
-**This result further re-affirmed my long position in innovative companies like Tesla. Innovative and disruptive companies do outperform in the midst of a crisis.** 
+**These observations further re-affirmed my long position in innovative companies like Tesla. Innovative and disruptive companies do outperform in the midst of a crisis.** 
 
 ## Further Work
 
 Stay tuned for more:
 
 - [ ] Evaluate different different configs for portfolio weights on periodic investments
-- [ ] Use Adjusted Closing prices
+- [x] Use Adjusted Closing prices
 - [ ] Project annual returns using machine learning
 - [ ] Deploy 'Portfolio-Optimization + Backtesting' as a service using the following setup:
   - FastAPI as web framework
